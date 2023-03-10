@@ -1,7 +1,21 @@
 {
   "name": "bridroom",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1",
+  "description": "App para encontrar tu pensión perfecta, conecta con arriendatarios y haz match con tu proximo hospedaje.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/katy-paola/bridroom"
+  },
+  "author": "Katy Barboza Baena",
+  "license": "MIT",
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "student residence",
+    "pension"
+  ],
+  "homepage": "https://bridroom.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
