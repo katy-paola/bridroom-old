@@ -1,5 +1,6 @@
 import '@/styles/index.scss';
 import type { AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
 import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({
@@ -7,10 +8,12 @@ const poppins = Poppins({
     subsets: ['latin'],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     return (
-        <div className={poppins.className}>
-            <Component {...pageProps} />
-        </div>
+        <SessionProvider session={session}>
+            <div className={poppins.className}>
+                <Component {...pageProps} />
+            </div>
+        </SessionProvider>
     );
 }

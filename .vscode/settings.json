@@ -2,5 +2,6 @@
     "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
-    "prettier.configPath": ".prettierrc.json"
+    "prettier.configPath": ".prettierrc.json",
+    "cSpell.words": ["Bridroom", "NEXTAUTH", "signin", "supabase"]
 }
