@@ -13,7 +13,7 @@ export const authOptions: NextAuthOptions = {
         url: process.env.NEXT_PUBLIC_SUPABASE_URL || '',
         secret: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
     }),
-    secret: process.env.NEXTAUTH_SECRET,
+    secret: process.env.NEXTAUTH_SECRET || '',
     session: {
         strategy: 'jwt',
     },
