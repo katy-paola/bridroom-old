@@ -1,5 +1,7 @@
+import { Card, Input, Button, Icon } from '@/components';
+import { type IconName, iconsMap } from '@/components/Icon/constants';
 import { supabase } from '@/lib/initSupabase';
-import { HousingModel } from '@/models/Housing.model';
+import { type HousingModel } from '@/models/Housing.model';
 import { signIn, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 
@@ -22,18 +24,68 @@ export default function Home() {
 
     if (status === 'authenticated') {
         return (
-            <main>
-                <h1>Estas autenticado</h1>
-                <pre>{JSON.stringify(session, null, 2)}</pre>
+            <main
+                style={{
+                    maxWidth: '1200px',
+                    margin: '0 auto',
+                    padding: '1rem',
+                }}>
+                <h1>Bienvenido {session.user.name}</h1>
+
+                <section
+                    style={{
+                        margin: '40px 0',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '2rem',
+                    }}>
+                    <Input name="email" label="Correo electrónico" />
+                    <Input name="password" label="Contraseña" type="password" />
+
+                    <Input
+                        name="password"
+                        label="Nombre completo"
+                        error="Tu nombre no es muy feo."
+                    />
+                </section>
+
+                <section
+                    style={{
+                        margin: '40px 0',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '1rem',
+                    }}>
+                    <Button> Primary Button </Button>
+                    <Button variant="secondary"> Secondary Button </Button>
+
+                    <Button icon="star"> Primary Button </Button>
+                    <Button variant="secondary" icon="facebook">
+                        Secondary Button
+                    </Button>
+                </section>
+
+                <section
+                    style={{
+                        margin: '40px 0',
+                        display: 'flex',
+                        gap: '1rem',
+                    }}>
+                    {Object.keys(iconsMap).map((iconName) => (
+                        <Icon key={iconName} name={iconName as IconName} size="lg" />
+                    ))}
+                </section>
 
                 <section>
                     <h2>Lista de viviendas</h2>
-                    <div>
-                        {housings.map((housing) => (
-                            <article key={housing.id}>
-                                <h3>{housing.name}</h3>
-                                <p>{housing.description}</p>
-                            </article>
+                    <div
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                            gap: '1rem',
+                        }}>
+                        {housings.map((housing, index) => (
+                            <Card key={index} housing={housing} />
                         ))}
                     </div>
                 </section>

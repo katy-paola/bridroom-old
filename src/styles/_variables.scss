@@ -1,1 +1,11 @@
-$primary-color: #64ff00;
+:root {
+    --primary-color: #dfc7e8;
+    --primary-color-dark: #d8a0ed;
+    --text-color: #69626d;
+    --transparent-color: transparent;
+    --white-color: #fff;
+    --text-color-light: #a7a3aa;
+    --text-error: #f54f4f;
+
+    --font-size-base: 10px;
+}

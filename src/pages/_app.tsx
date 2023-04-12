@@ -6,14 +6,20 @@ import { Poppins } from 'next/font/google';
 const poppins = Poppins({
     weight: ['300', '400', '500', '600', '700'],
     subsets: ['latin'],
+    display: 'swap',
 });
 
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     return (
-        <SessionProvider session={session}>
-            <div className={poppins.className}>
+        <>
+            <style jsx global>{`
+                * {
+                    font-family: ${poppins.style.fontFamily};
+                }
+            `}</style>
+            <SessionProvider session={session}>
                 <Component {...pageProps} />
-            </div>
-        </SessionProvider>
+            </SessionProvider>
+        </>
     );
 }

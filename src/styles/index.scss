@@ -1,7 +1,22 @@
 @import './reset.scss';
 @import './variables.scss';
+@import './card.scss';
+@import './input.scss';
+@import './button.scss';
+@import './icon.scss';
 
-/* index.scss */
+:root {
+    font-size: var(--font-size-base);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.8rem;
+}
+
 main {
     color: #1e1c1c;
 }
